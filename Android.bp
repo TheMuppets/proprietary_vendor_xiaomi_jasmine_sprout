@@ -3,4 +3,225 @@
 //
 
 soong_namespace {
+    imports: [
+        "hardware/xiaomi",
+        "vendor/xiaomi/sdm660-common",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.fpc.default",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/fingerprint.fpc.default.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libhidltransport",
+                "android.hardware.biometrics.fingerprint@2.1",
+                "com.fingerprints.extension@1.0",
+                "libQSEEComAPI",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.goodix.default",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/fingerprint.goodix.default.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libc",
+                "libc++",
+                "libbase",
+                "libdl",
+                "libhardware",
+                "libcrypto",
+                "libgf_hal",
+                "libgf_ca",
+                "libvendor.goodix.hardware.fingerprint@1.0",
+                "libvendor.goodix.hardware.fingerprint@1.0-service",
+                "libm",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.sdm660",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/fingerprint.sdm660.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_ca",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libgf_ca.so",
+            ],
+            shared_libs: [
+                "libQSEEComAPI",
+                "libhardware",
+                "libc",
+                "libm",
+                "libdl",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_hal",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libgf_hal.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "libgf_ca",
+                "libc",
+                "libm",
+                "libdl",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libvendor.goodix.hardware.fingerprint@1.0-service",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblzma",
+                "libc",
+                "libc++",
+                "libbase",
+                "libdl",
+                "libhardware",
+                "libprotobuf-cpp-lite-vendorcompat",
+                "libcrypto",
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libhwbinder",
+                "android.hidl.base@1.0",
+                "android.hardware.keymaster@3.0",
+                "libvendor.goodix.hardware.fingerprint@1.0",
+                "libgf_hal",
+                "libgf_ca",
+                "libQSEEComAPI",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libvendor.goodix.hardware.fingerprint@1.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase-v32",
+                "libhidltransport",
+                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libdl",
+                "libc",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
 }
